@@ -16,15 +16,12 @@ jobs:
       - name: Instalar Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: '3.2'
 
       - name: Instalar dependências
         run: bundle install
 
       - name: Rodar testes
-        run: bundle exec rspec
-
-              - name: Rodar testes
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
