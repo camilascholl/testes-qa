@@ -6,8 +6,8 @@ RSpec.describe 'Login do sistema', type: :system do
 
   save_and_open_screenshot 
 
-  find('input[type="email"]').set('')
-find('input[type="password"]').set('')
+  find('input[type="email"]').send_keys(ENV['EMAIL'])
+find('input[type="password"]').send_keys(ENV['PASSWORD'])
 
   click_button 'Acessar'
 
