@@ -1,0 +1,4 @@
+example_id                             | status | run_time      |
+-------------------------------------- | ------ | ------------- |
+./spec/system/agendamento_spec.rb[1:1] | failed | 13.28 seconds |
+./spec/system/login_spec.rb[1:1]       | failed | 7.89 seconds  |
