@@ -6,8 +6,8 @@ RSpec.describe 'Login do sistema', type: :system do
 
   save_and_open_screenshot 
 
-  find('input[type="email"]').set('camila.scholl.workspace@gmail.com')
-find('input[type="password"]').set('Bioedu23@Ca')
+  find('input[type="email"]').set('')
+find('input[type="password"]').set('')
 
   click_button 'Acessar'
 

@@ -5,8 +5,8 @@ RSpec.describe 'Agendamento', type: :system do
     visit 'https://app.santeodonto.io/users/sign_in'
 
     #login
-  find('input[type="email"]').set('camila.scholl.workspace@gmail.com')
-find('input[type="password"]').set('Bioedu23@Ca')
+  find('input[type="email"]').set('')
+find('input[type="password"]').set('')
 
  find('#btn-submit-form-login', wait: 10).click
 
