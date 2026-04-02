@@ -31,3 +31,11 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location! if config.respond_to?(:infer_spec_type_from_file_location!)
   config.filter_rails_from_backtrace! if config.respond_to?(:filter_rails_from_backtrace!)
 end
+
+Capybara.register_driver :selenium_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+
+  options.add_argument('--window-size=1400,1400')
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end

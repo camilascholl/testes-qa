@@ -1,3 +1,7 @@
+require 'capybara'
+require 'capybara/rspec'
+require 'selenium-webdriver'
+
 Capybara.register_driver :selenium_chrome_headless do |app|
   options = Selenium::WebDriver::Chrome::Options.new
 
@@ -9,4 +13,10 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.default_driver = :selenium_chrome_headless
+Capybara.default_driver = :selenium_chrome
+
+# ✅ IMPORTANTE (espera automática)
+Capybara.default_max_wait_time = 10
+
+# ✅ IMPORTANTE (seu sistema externo)
+Capybara.app_host = 'https://app.santeodonto.io'

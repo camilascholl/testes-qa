@@ -1,16 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe 'Login do sistema', type: :system do
-  it "faz login com sucesso" do
-  visit 'https://app.santeodonto.io/users/sign_in'
+  it 'faz login e pausa no popup para inspeção' do
+    visit '/users/sign_in'
 
-  save_and_open_screenshot 
+    # espera carregar
+    expect(page).to have_selector('#btn-submit-form-login', wait: 10)
 
-  find('input[type="email"]').send_keys(ENV['EMAIL'])
-find('input[type="password"]').send_keys(ENV['PASSWORD'])
+  
+    email = find('input[type="email"]', wait: 10)
+    email.set('')
+    email.send_keys(ENV['EMAIL'])
 
-  click_button 'Acessar'
+    senha = find('input[type="password"]')
+    senha.set('')
+    senha.send_keys(ENV['PASSWORD'])
 
-  expect(page).to have_content('Bom dia, Camila', wait: 5)
-end
+  
+    email.send_keys(:tab)
+
+    find('#btn-submit-form-login', wait: 10).click
+
+
+    expect(page).to have_no_current_path('/users/sign_in', wait: 15)
+
+      require 'byebug'
+    byebug
+
+    save_and_open_page
+  
+  end
 end
